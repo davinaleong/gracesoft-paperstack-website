@@ -1,17 +1,743 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const features = [
+  {
+    icon: "◫",
+    title: "Layered Depth",
+    desc: "Multi-layer box shadows simulate the tactility of stacked paper sheets, giving your UI a grounded, physical presence.",
+  },
+  {
+    icon: "Aa",
+    title: "Editorial Typography",
+    desc: "A curated type system pairing Playfair Display with Montserrat — expressive headings, readable body, refined details.",
+  },
+  {
+    icon: "◑",
+    title: "Paper-First Palette",
+    desc: "Warm neutrals drawn from paper stock, ink, and shadow. A restrained system that lets content breathe.",
+  },
+  {
+    icon: "⊹",
+    title: "Texture Language",
+    desc: "Subtle grain and surface cues that evoke tactility without relying on literal imagery. Feels touchable, stays digital.",
+  },
+  {
+    icon: "▣",
+    title: "Component Library",
+    desc: "Pre-built, accessible UI components — cards, buttons, forms, modals — all expressing the paper aesthetic natively.",
+  },
+  {
+    icon: "{}",
+    title: "Design Tokens",
+    desc: "Every decision — spacing, color, shadow, radius — exported as JSON tokens. Consistent across platforms and themes.",
+  },
+];
+
+const steps = [
+  {
+    num: "01",
+    title: "Install",
+    desc: "Add PaperStack to your project in seconds.",
+    code: "npm install @gracesoft/paperstack",
+  },
+  {
+    num: "02",
+    title: "Import",
+    desc: "Drop the stylesheet and tokens into your codebase.",
+    code: "import '@gracesoft/paperstack/css';",
+  },
+  {
+    num: "03",
+    title: "Build",
+    desc: "Compose beautiful, paper-inspired interfaces with ready-made components and design tokens.",
+    code: '<div class="ps-card ps-paper">…</div>',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="GraceSoft PaperStack"
+  description="A UI design system that brings the warmth, depth, and tactility of paper to your digital products."
+>
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  HERO                                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="hero section--lg">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="tag hero__eyebrow">Introducing PaperStack</span>
+          <h1 class="hero__title">
+            Design Like<br />
+            Paper <em>Feels.</em>
+          </h1>
+          <p class="hero__lead">
+            PaperStack is a UI design system that brings the warmth, depth, and
+            tactility of paper to your digital products.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Get Early Access</a>
+            <a href="#features" class="btn btn--outline">Explore Features</a>
+          </div>
+          <p class="hero__note">
+            Free during early access · No credit card required
+          </p>
+        </div>
+
+        <!-- Decorative paper-stack mockup (CSS only) -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="paper-demo">
+            <div class="pd__sheet pd__sheet--3"></div>
+            <div class="pd__sheet pd__sheet--2"></div>
+            <div class="pd__sheet pd__sheet--1">
+              <!-- Skeleton UI inside the top sheet -->
+              <div class="pd__logo-row">
+                <div class="pd__dot"></div>
+                <div class="pd__skel pd__skel--xs" style="width:5rem"></div>
+              </div>
+              <div class="pd__skel pd__skel--heading"></div>
+              <div class="pd__skel pd__skel--body"></div>
+              <div class="pd__skel pd__skel--body" style="width:75%"></div>
+              <div class="pd__skel pd__skel--sm" style="width:50%"></div>
+              <div class="pd__rule"></div>
+              <div class="pd__card-row">
+                <div class="pd__mini-card"></div>
+                <div class="pd__mini-card"></div>
+                <div class="pd__mini-card"></div>
+              </div>
+              <div class="pd__btn-row">
+                <div class="pd__skel pd__skel--btn pd__skel--filled"></div>
+                <div class="pd__skel pd__skel--btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FEATURES                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="features" class="section section--bg">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">What You Get</span>
+        <h2>A design system with<br /><em>paper at its core</em></h2>
+        <p>
+          Every decision in PaperStack is informed by the qualities that make
+          paper feel special — texture, depth, layering, and restraint.
+        </p>
+      </header>
+
+      <div class="grid-3">
+        {
+          features.map(({ icon, title, desc }) => (
+            <article class="card feature-card">
+              <div class="feature-card__icon" aria-hidden="true">
+                {icon}
+              </div>
+              <h3 class="feature-card__title">{title}</h3>
+              <p class="feature-card__desc">{desc}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  HOW IT WORKS                                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">How it Works</span>
+        <h2>Up and running<br /><em>in minutes</em></h2>
+        <p>
+          PaperStack is framework-agnostic. Drop it into any stack, any project.
+        </p>
+      </header>
+
+      <div class="steps">
+        {
+          steps.map(({ num, title, desc, code }) => (
+            <div class="step">
+              <span class="step__num">{num}</span>
+              <div class="step__body">
+                <h3 class="step__title">{title}</h3>
+                <p class="step__desc">{desc}</p>
+                <div class="step__code">
+                  <code>{code}</code>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  DESIGN TOKENS SHOWCASE                                     -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class="section section--bg tokens-showcase"
+    aria-label="Design tokens preview"
+  >
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Design Language</span>
+        <h2>Built from the<br /><em>paper up</em></h2>
+        <p>
+          A cohesive visual language — depth, type, and palette — all working
+          together to give your UI a physical, tactile feel.
+        </p>
+      </header>
+
+      <div class="tokens-grid">
+        <!-- Shadow scale -->
+        <div class="token-group">
+          <p class="token-group__label">Shadow Scale</p>
+          <div class="shadow-swatches">
+            <div class="shadow-swatch" style="box-shadow: var(--shadow-xs);">
+              <span>xs</span>
+            </div>
+            <div class="shadow-swatch" style="box-shadow: var(--shadow-sm);">
+              <span>sm</span>
+            </div>
+            <div class="shadow-swatch" style="box-shadow: var(--shadow-paper);">
+              <span>paper</span>
+            </div>
+            <div
+              class="shadow-swatch"
+              style="box-shadow: var(--shadow-paper-md);"
+            >
+              <span>paper-md</span>
+            </div>
+            <div
+              class="shadow-swatch"
+              style="box-shadow: var(--shadow-paper-lg);"
+            >
+              <span>paper-lg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color palette -->
+        <div class="token-group">
+          <p class="token-group__label">Color Palette</p>
+          <div class="color-swatches">
+            <div
+              class="color-swatch"
+              style="background:#faf8f5; border:1px solid var(--clr-border);"
+            >
+              <span style="color:var(--clr-muted)">Paper</span>
+            </div>
+            <div
+              class="color-swatch"
+              style="background:#f1f5f9; border:1px solid var(--clr-border);"
+            >
+              <span style="color:var(--clr-muted)">Indigo</span>
+            </div>
+            <div class="color-swatch" style="background:#000000;">
+              <span style="color:#ffffff">Black</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Type specimen -->
+        <div class="token-group type-specimen">
+          <p class="token-group__label">Type Specimen</p>
+          <p class="type-serif">The quick brown fox</p>
+          <p class="type-sans">The quick brown fox jumps over the lazy dog</p>
+          <p class="type-mono">npm install @gracesoft/paperstack</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  CTA BANNER                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="section section--dark cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__content">
+          <span class="eyebrow" style="color:rgba(255,255,255,0.4)"
+            >Start Building Today</span
+          >
+          <h2>Ready to design<br /><em>like paper feels?</em></h2>
+          <p>
+            Join designers and developers building with PaperStack. Free during
+            early access — ship your first paper-inspired interface today.
+          </p>
+        </div>
+        <div class="cta-banner__actions">
+          <a
+            href="#contact"
+            class="btn"
+            style="background:#faf8f5;color:#000;border-color:#faf8f5;"
+            >Get Early Access</a
+          >
+          <a
+            href="/blog"
+            class="btn btn--ghost"
+            style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.25);"
+            >Read the Blog</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  CONTACT                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="contact" class="section section--bg">
+    <div class="container container--narrow">
+      <header class="section-header">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Let's build something<br /><em>together</em></h2>
+        <p>
+          Questions, collaborations, or just want early access? Fill in the form
+          and we'll get back to you.
+        </p>
+      </header>
+
+      <div class="contact-frame-wrap">
+        <iframe
+          src="https://capture.gracesoft.dev/form/frm_246f28cf19de52e7f7ea3adbd22ff5a9?surface=none"
+          width="100%"
+          height="600"
+          style="display:block;width:100%;max-width:100%;border:0;background:transparent;"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: var(--sp-5);
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: var(--sp-6);
+  }
+
+  .hero__title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__lead {
+    font-size: var(--fs-lg);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: var(--sp-8);
+    color: var(--clr-muted);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--sp-4);
+  }
+
+  .hero__note {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-mono);
+    letter-spacing: 0.05em;
+    color: var(--clr-subtle);
+    margin-bottom: 0;
+  }
+
+  /* Paper demo illustration */
+  .hero__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .paper-demo {
+    position: relative;
+    width: 360px;
+    height: 300px;
+  }
+
+  .pd__sheet {
+    position: absolute;
+    width: 320px;
+    height: 280px;
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-6);
+  }
+
+  .pd__sheet--3 {
+    top: 16px;
+    left: 32px;
+    background: var(--clr-indigo);
+    box-shadow: none;
+    z-index: 1;
+  }
+
+  .pd__sheet--2 {
+    top: 8px;
+    left: 16px;
+    background: #f4f2ef;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
+  .pd__sheet--1 {
+    top: 0;
+    left: 0;
+    z-index: 3;
+    box-shadow: var(--shadow-paper-md);
+  }
+
+  /* Skeleton elements */
+  .pd__logo-row {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-5);
+  }
+
+  .pd__dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--clr-black);
+    flex-shrink: 0;
+  }
+
+  .pd__skel {
+    height: 0.625rem;
+    background: var(--clr-indigo);
+    border-radius: 999px;
+    width: 100%;
+  }
+
+  .pd__skel--xs {
+    height: 0.5rem;
+  }
+  .pd__skel--heading {
+    height: 1.1rem;
+    width: 80%;
+    margin-bottom: var(--sp-4);
+  }
+  .pd__skel--body {
+    height: 0.55rem;
+    margin-bottom: var(--sp-3);
+  }
+  .pd__skel--sm {
+    height: 0.45rem;
+    margin-bottom: var(--sp-4);
+  }
+  .pd__skel--btn {
+    height: 1.75rem;
+    width: 5.5rem;
+    border-radius: var(--radius-sm);
+  }
+  .pd__skel--filled {
+    background: var(--clr-black);
+  }
+
+  .pd__rule {
+    height: 1px;
+    background: var(--clr-border);
+    margin-block: var(--sp-4);
+  }
+
+  .pd__card-row {
+    display: flex;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+
+  .pd__mini-card {
+    flex: 1;
+    height: 2.5rem;
+    background: var(--clr-indigo);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 1px 0 var(--clr-border-dark);
+  }
+
+  .pd__btn-row {
+    display: flex;
+    gap: var(--sp-3);
+  }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .feature-card__icon {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--clr-black);
+    margin-bottom: var(--sp-4);
+    display: block;
+    line-height: 1;
+  }
+
+  .feature-card__title {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--sp-3);
+  }
+
+  .feature-card__desc {
+    font-size: var(--fs-sm);
+    line-height: 1.75;
+    color: var(--clr-muted);
+    margin-bottom: 0;
+  }
+
+  /* ── How it Works ─────────────────────────────────────────── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sp-8);
+    counter-reset: steps;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--sp-5);
+    padding: var(--sp-8);
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .step__num {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--clr-subtle);
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+
+  .step__title {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--sp-2);
+  }
+
+  .step__desc {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-4);
+  }
+
+  .step__code {
+    background: var(--clr-black);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+  }
+
+  .step__code code {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    color: var(--clr-indigo);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Tokens Showcase ──────────────────────────────────────── */
+  .tokens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--sp-8);
+  }
+
+  .token-group {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .token-group__label {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-subtle);
+    margin-bottom: var(--sp-5);
+  }
+
+  .shadow-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .shadow-swatch {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-sm);
+  }
+
+  .shadow-swatch span {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    color: var(--clr-muted);
+  }
+
+  .color-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .color-swatch {
+    padding: var(--sp-4);
+    border-radius: var(--radius-sm);
+  }
+
+  .color-swatch span {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+  }
+
+  .type-serif {
+    font-family: var(--ff-serif);
+    font-size: var(--fs-2xl);
+    color: var(--clr-black);
+    margin-bottom: var(--sp-3);
+    line-height: 1.2;
+  }
+
+  .type-sans {
+    font-size: var(--fs-sm);
+    color: var(--clr-ink);
+    margin-bottom: var(--sp-3);
+    line-height: 1.6;
+  }
+
+  .type-mono {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    color: var(--clr-muted);
+    background: var(--clr-indigo);
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0;
+  }
+
+  /* ── CTA Banner ───────────────────────────────────────────── */
+  .cta-banner__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .cta-banner__content h2 {
+    font-size: clamp(var(--fs-3xl), 4vw, var(--fs-5xl));
+    margin-bottom: var(--sp-4);
+  }
+
+  .cta-banner__content h2 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .cta-banner__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    min-width: 200px;
+  }
+
+  /* ── Contact ──────────────────────────────────────────────── */
+  .contact-frame-wrap {
+    position: relative;
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-paper-lg);
+    overflow: hidden;
+    min-height: 620px;
+    padding: var(--sp-4);
+  }
+
+  .contact-iframe {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  /* Hide placeholder when the iframe has a real src */
+  .contact-iframe[src]:not([src=""]) ~ .contact-placeholder {
+    display: none;
+  }
+
+  .contact-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-5);
+    background: var(--clr-white);
+    text-align: center;
+    padding: var(--sp-8);
+  }
+
+  .contact-placeholder img {
+    opacity: 0.25;
+  }
+
+  .contact-placeholder p {
+    color: var(--clr-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  /* ── Responsive ───────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__visual {
+      display: none;
+    }
+
+    .cta-banner__inner {
+      grid-template-columns: 1fr;
+      gap: var(--sp-8);
+    }
+
+    .cta-banner__actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+</style>

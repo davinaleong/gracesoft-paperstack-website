@@ -1,0 +1,190 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = {
+  product: [
+    { href: "/#features", label: "Features" },
+    { href: "/#how-it-works", label: "How it Works" },
+    { href: "/#contact", label: "Get Early Access" },
+  ],
+  resources: [{ href: "/blog", label: "Product Blog" }],
+  legal: [
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/terms-and-conditions", label: "Terms & Conditions" },
+  ],
+};
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" aria-label="GraceSoft PaperStack home">
+          <img
+            src="/wm-w.svg"
+            alt="GraceSoft PaperStack"
+            width="160"
+            height="36"
+          />
+        </a>
+        <p class="footer__tagline">Design like paper feels.</p>
+        <p class="footer__desc">
+          A UI design system that brings the warmth, depth, and tactility of
+          paper to digital products.
+        </p>
+      </div>
+
+      <div class="footer__nav">
+        <div class="footer__col">
+          <h3 class="footer__heading">Product</h3>
+          <ul role="list">
+            {
+              footerLinks.product.map(({ href, label }) => (
+                <li>
+                  <a href={href}>{label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Resources</h3>
+          <ul role="list">
+            {
+              footerLinks.resources.map(({ href, label }) => (
+                <li>
+                  <a href={href}>{label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Legal</h3>
+          <ul role="list">
+            {
+              footerLinks.legal.map(({ href, label }) => (
+                <li>
+                  <a href={href}>{label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {year} GraceSoft. All rights reserved.</p>
+      <p class="footer__credit">Built with PaperStack</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--clr-black);
+    color: var(--clr-indigo);
+    padding-block: var(--sp-20) var(--sp-8);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-16);
+    padding-bottom: var(--sp-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer__brand img {
+    height: 2rem;
+    width: auto;
+    margin-bottom: var(--sp-5);
+  }
+
+  .footer__tagline {
+    font-family: var(--ff-serif);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    color: #ffffff;
+    margin-bottom: var(--sp-3);
+    line-height: 1.4;
+  }
+
+  .footer__desc {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 300px;
+    line-height: 1.7;
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: var(--sp-12);
+  }
+
+  .footer__heading {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: var(--sp-4);
+  }
+
+  .footer__col ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .footer__col a {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color var(--duration) var(--ease);
+  }
+
+  .footer__col a:hover {
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--sp-8);
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--ff-mono);
+    letter-spacing: 0.04em;
+  }
+
+  .footer__credit {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-10);
+    }
+
+    .footer__nav {
+      flex-wrap: wrap;
+      gap: var(--sp-8);
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      gap: var(--sp-2);
+      text-align: center;
+    }
+  }
+</style>
