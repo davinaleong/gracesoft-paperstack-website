@@ -1,0 +1,23 @@
+---
+import { downloads } from "../data/downloads";
+
+export interface Props {
+  framework: "html" | "react" | "vue" | "svelte";
+}
+
+const { framework } = Astro.props;
+const label = framework.charAt(0).toUpperCase() + framework.slice(1);
+---
+
+<div class="download-card">
+  <h3>{label}</h3>
+  <a href={downloads.core[framework]} download class="btn btn--secondary">
+    Download Core — Free
+  </a>
+  <a
+    href={downloads.pro[framework]}
+    class="btn btn--primary lemonsqueezy-button"
+  >
+    Get Pro — $19
+  </a>
+</div>

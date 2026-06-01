@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DownloadCard from "../components/DownloadCard.astro";
 
 const features = [
   {
@@ -175,6 +176,29 @@ const steps = [
             </div>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  DOWNLOAD                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="download" class="section section--bg">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Download</span>
+        <h2>Choose your<br /><em>framework</em></h2>
+        <p>
+          PaperStack ships as a ready-to-use package for every major framework.
+          Grab the free Core or unlock everything with Pro.
+        </p>
+      </header>
+
+      <div class="grid-4">
+        <DownloadCard framework="html" />
+        <DownloadCard framework="react" />
+        <DownloadCard framework="vue" />
+        <DownloadCard framework="svelte" />
       </div>
     </div>
   </section>
