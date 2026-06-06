@@ -11,7 +11,7 @@ export const downloads = {
     svelte: `${GH}/paperstack-core-svelte-v${VERSION}.zip`,
   },
   pro: {
-    html:   `${LQ}/1730242`,
+    html:   `${LQ}/1730296`,
     react:  `${LQ}/1730247`,
     vue:    `${LQ}/1730249`,
     svelte: `${LQ}/1730251`,
