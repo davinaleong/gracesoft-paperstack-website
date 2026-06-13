@@ -551,6 +551,11 @@ const steps = [
     background: var(--clr-white);
     border: 1px solid var(--clr-border);
     box-shadow: var(--shadow-paper);
+    min-width: 0;
+  }
+
+  .step__body {
+    min-width: 0;
   }
 
   .step__num {
@@ -762,6 +767,29 @@ const steps = [
     .cta-banner__actions {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .step {
+      flex-direction: column;
+      gap: var(--sp-3);
+      padding: var(--sp-6);
+    }
+
+    .step__num {
+      padding-top: 0;
+    }
+
+    .btn {
+      white-space: normal;
+      text-align: center;
+    }
+
+    .hero__actions .btn,
+    .cta-banner__actions .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
