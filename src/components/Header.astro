@@ -2,6 +2,11 @@
 const navLinks = [
   { href: "/#features", label: "Features" },
   { href: "/#how-it-works", label: "How it Works" },
+  {
+    href: "https://playground.paperstack.gracesoft.dev/",
+    label: "Playground",
+    external: true,
+  },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -29,7 +34,7 @@ const currentPath = Astro.url.pathname;
 
       <ul class="nav__links" id="nav-menu" role="list">
         {
-          navLinks.map(({ href, label }) => (
+          navLinks.map(({ href, label, external }) => (
             <li>
               <a
                 href={href}
@@ -37,6 +42,9 @@ const currentPath = Astro.url.pathname;
                   "nav__link",
                   { "nav__link--active": currentPath === href },
                 ]}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 {label}
               </a>
