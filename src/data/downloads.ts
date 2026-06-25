@@ -1,19 +1,4 @@
-export const VERSION = "1.0.0"
-
-const GH = `https://github.com/davinaleong/gracesoft-paperstack/releases/download/v${VERSION}`
 const LQ = `https://store.gracesoft.dev/checkout/buy`
 
-export const downloads = {
-  core: {
-    html:   `${GH}/paperstack-core-html-v${VERSION}.zip`,
-    react:  `${GH}/paperstack-core-react-v${VERSION}.zip`,
-    vue:    `${GH}/paperstack-core-vue-v${VERSION}.zip`,
-    svelte: `${GH}/paperstack-core-svelte-v${VERSION}.zip`,
-  },
-  pro: {
-    html:   `${LQ}/1754433`,
-    react:  `${LQ}/1754435`,
-    vue:    `${LQ}/1754444`,
-    svelte: `${LQ}/1754450`,
-  },
-}
+export const CORE_URL = `${LQ}/31e9488b-3043-4a38-b3df-cd8a66f1c471`
+export const PRO_URL  = `${LQ}/fe06461f-a6f7-46b1-bf68-8543311a66b4`
