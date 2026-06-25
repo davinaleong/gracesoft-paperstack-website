@@ -34,7 +34,13 @@ const prev = allPosts[idx + 1] ?? null;
 const next = allPosts[idx - 1] ?? null;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  author={post.data.author}
+>
   <article class="post-article">
     <!-- Post header -->
     <header class="post-header section--bg">
